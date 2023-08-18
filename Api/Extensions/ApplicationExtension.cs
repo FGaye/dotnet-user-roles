@@ -1,6 +1,8 @@
 using System.Text;
 using Api.Data;
 using Api.Entities;
+using Api.Interfaces;
+using Api.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -32,6 +34,7 @@ namespace Api.Extensions
 
             services.AddScoped<UserManager<User>, UserManager<User>>();
             services.AddScoped<SignInManager<User>, SignInManager<User>>();
+            services.AddScoped<ITokenService, TokenService>();
           
             services.AddAuthorization(options =>
             {
